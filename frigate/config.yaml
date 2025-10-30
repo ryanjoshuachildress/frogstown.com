@@ -41,11 +41,11 @@ model:
 record:
   enabled: true
   retain:
-    days: 3
+    days: 1
     mode: motion
   alerts:
     retain:
-      days: 7
+      days: 3
   detections:
     retain:
       days: 14
@@ -57,9 +57,9 @@ snapshots:
   bounding_box: true
   crop: false
   retain:
-    default: 10
+    default: 90
     objects:
-      person: 15
+      person: 180
   quality: 70
 
 audio:
@@ -70,11 +70,6 @@ audio:
     - scream
     - speech
     - yell
-    - fart
-    - fire_engine
-    - ambulance
-    - police_car
-    - emergency_vehicle
 
 
 objects:
@@ -201,7 +196,7 @@ cameras:
 detect:
   enabled: true
 genai:
-  enabled: true
+  enabled: false
   provider: ollama
   base_url: http://100.90.137.60:11434
   model: llava
