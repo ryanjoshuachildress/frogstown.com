@@ -1,0 +1,267 @@
+mqtt:
+  enabled: true
+  host: 10.0.0.119
+  port: 1883
+  topic_prefix: frigate
+  client_id: frigate
+  user: mqttuser
+  password: mqttuser
+  stats_interval: 300
+
+tls:
+  enabled: false
+
+go2rtc:
+  streams:
+    linux_usbcam: 
+      ffmpeg:device?video=0&video_size=1280x720#video=h264
+    ring: 
+      ring:?camera_id=584811155&device_id=54e019a8b6e3&refresh_token=eyJydCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW1wcmRTSTZJaTl2WVhWMGFDOXBiblJsY201aGJDOXFkMnR6SWl3aWEybGtJam9pWkRjMFlqTmhNV1VpTENKMGVYQWlPaUpLVjFRaWZRLmV5SnBZWFFpT2pFM05qRTNOVGd3TWpVc0ltbHpjeUk2SWxKcGJtZFBZWFYwYUZObGNuWnBZMlV0Y0hKdlpEcDFjeTFsWVhOMExURTZOVGs1WWpBeVpUY2lMQ0p2YVdGMElqb3hOell4TnpVNE1ESTFMQ0p5WldaeVpYTm9YMk5wWkNJNkluSnBibWRmYjJabWFXTnBZV3hmWVc1a2NtOXBaQ0lzSW5KbFpuSmxjMmhmYzJOdmNHVnpJanBiSW1Oc2FXVnVkQ0pkTENKeVpXWnlaWE5vWDNWelpYSmZhV1FpT2pFMU1UWTVNREl4TkN3aWNtNWtJam9pYWxkUldrMUtVblZYU2lJc0luTmxjM05wYjI1ZmFXUWlPaUkyWkdWak5UQTNPQzAzT1RjMUxUUTVaR1l0T1dJMk1pMHlaRGxqT0dGak9XSm1NMkVpTENKMGVYQmxJam9pY21WbWNtVnphQzEwYjJ0bGJpSjkuaUNWN2hXSDdmV0RyVThWN3o2ZkZPemFBUWFJbVRRQzBoYlhvQXVOcGFSb1R5TWJBdC1lMm5zX2NCNDI0TE9RQmVadFl1eFNVSDVvUDViZnlYMEF1TTdkZ2cwX3M2dEZoMHZueDViMzRLS3hWeUpWZUhEelNlQTdRalk4Z3VQdHRaRVpnVFp5NFRBc1VnVVhlZDgySlJza3lvQmRhaGp6ODBaVERkNWVSUWdKaFY3bHhEREpteFRRcEZWeXdvc2xwNHNEaFM4VFZSdENiUzRITFZEUVpJd3dqZjc3QzZNcFpVM0FIWWxrQ2tvenc5X2tzZ1RrUkN4Y0ZYT0hpbmNWT1VTZGxTWFFpVW9raHdNNEE0Sk9vTkJEak9vZklsUFVGZUdVcldWT1JsLUlvcFNlN0taMkloc2JBZGhYNFpEdHhUcXJBaExZWW9ZVkVNYm0wYzRPX0lRIiwiaGlkIjoiNTY5ZmExMWQ1NzJkODZmZWM0NDM0NTc0NzM2NTUwMjkifQ%3D%3D
+    ring_snapshot: 
+      ring:?device_id=54e019a8b6e3&refresh_token=eyJydCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW1wcmRTSTZJaTl2WVhWMGFDOXBiblJsY201aGJDOXFkMnR6SWl3aWEybGtJam9pWkRjMFlqTmhNV1VpTENKMGVYQWlPaUpLVjFRaWZRLmV5SnBZWFFpT2pFM05qRXdNVEV3TVRJc0ltbHpjeUk2SWxKcGJtZFBZWFYwYUZObGNuWnBZMlV0Y0hKdlpEcDFjeTFsWVhOMExURTZOVGs1WWpBeVpUY2lMQ0p2YVdGMElqb3hOell4TURFeE1ERXlMQ0p5WldaeVpYTm9YMk5wWkNJNkluSnBibWRmYjJabWFXTnBZV3hmWVc1a2NtOXBaQ0lzSW5KbFpuSmxjMmhmYzJOdmNHVnpJanBiSW1Oc2FXVnVkQ0pkTENKeVpXWnlaWE5vWDNWelpYSmZhV1FpT2pFMU1UWTVNREl4TkN3aWNtNWtJam9pT0VnemRrdG1SR0p1WlNJc0luTmxjM05wYjI1ZmFXUWlPaUl5Tm1Ga05HUmlOQzFsWVdZd0xUUXhZekV0WW1SbFpDMHdNekE1TlRWa1pUTTNaREVpTENKMGVYQmxJam9pY21WbWNtVnphQzEwYjJ0bGJpSjkuSENrMG05Q2N3ZmY5dVdFX2VuQU5oYmJBUWVsekE1Y0NVZDY3M3Y1QWRPS2hFejZQSDFzdlVvdXI0cmZERnRsdzlPV2d4eVUyaXhFVmtOdTVwaWhHTG0xcDE2MC1zYlNocElzbkVheEI3OS1RTXllU1dLQUFCWVN6OEdZQnNBbWprMEZ2c3hwVE8za2tvdEtHNjJPdC1KOFc4UkpwazR5UTRLeXJWejVvV1c5Q2xHMXNNU25TeVY4TWpxSVhsSENPaEVsbDR3OWJlNFpFbTc5ckVTSHN3RXM2YXVFLXhGakpfVlhqUUg2N1RILVdiODBYeGluVmRWOWVUVzRweW5Ic3lxWjgwblczVzNHZUFkREoxbHB2dlBLS25ZS3k1LXRZYTRBWmxPMVRlVjZJTkhXMU9UNXlIenZiU3EyQ0xfSVpfOE96Um8xYVVNSlJfUnUweW9Fblp3IiwiaGlkIjoiNTY5ZmExMWQ1NzJkODZmZWM0NDM0NTc0NzM2NTUwMjkifQ%3D%3D&snapshot
+    back:
+      - rtsp://user:password@10.0.10.10:554/cam/realmonitor?channel=1&subtype=2
+
+ffmpeg:
+  hwaccel_args: preset-vaapi
+
+detectors:
+  ov:
+    type: openvino
+    device: GPU
+
+model:
+  width: 300
+  height: 300
+  input_tensor: nhwc
+  input_pixel_format: bgr
+  path: /openvino-model/ssdlite_mobilenet_v2.xml
+  labelmap_path: /openvino-model/coco_91cl_bkgr.txt
+
+record:
+  enabled: true
+  retain:
+    days: 3
+    mode: motion
+  alerts:
+    retain:
+      days: 7
+  detections:
+    retain:
+      days: 14
+
+snapshots:
+  enabled: true
+  clean_copy: true
+  timestamp: true
+  bounding_box: true
+  crop: false
+  retain:
+    default: 10
+    objects:
+      person: 15
+  quality: 70
+
+audio:
+  enabled: true
+  listen:
+    - bark
+    - fire_alarm
+    - scream
+    - speech
+    - yell
+    - fart
+    - fire_engine
+    - ambulance
+    - police_car
+    - emergency_vehicle
+
+
+objects:
+  track:
+    - person
+    - dog
+    - cat
+    - motorcycle
+    - car
+
+  filters:
+    person:
+      min_area: 5000
+      max_area: 100000
+      min_ratio: 0.5
+      max_ratio: 2.0
+      min_score: 0.5
+      threshold: 0.7
+
+cameras:
+  F-Desk: # <------ Name the camera
+    enabled: true
+    detect:
+      fps: 5
+    ffmpeg:
+      inputs:
+        - path: rtsp://100.76.15.107:8554/linux_usbcam?mp4 # <----- The stream you want to use f>
+          roles:
+            - detect
+            - record
+            - audio
+  F-Parkinglot: # <------ Name the camera
+    enabled: true
+    detect:
+      fps: 5
+    ffmpeg:
+      inputs:
+        - path: rtsp://100.76.15.107:8554/ring?mp4 # <----- The stream you want to use f>
+          roles:
+            - detect
+            - record
+            - audio
+  F-Bedroom: # <------ Name the camera
+    enabled: true
+    detect:
+      fps: 5
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      inputs:
+        - path: rtsp://admin1:12345678@10.0.0.20:554/stream2 # <----- The stream you want to use f>
+          roles:
+            - record
+        - path: rtsp://admin1:12345678@10.0.0.20:554/stream1 # <----- The stream you want to use f>
+          roles:
+            - detect
+            - audio
+    motion:
+      mask:
+        - 0,0.142,0.001,0,0.248,0,0.578,0,0.591,0.029,0.506,0.109,0.441,0.144,0.288,0.218,0.142,0.2,0.05,0.227
+        - 0.044,0.214,0.134,0.2,0.145,0.313,0.057,0.35
+    zones:
+      Door:
+        coordinates: 
+          0.417,0.18,0.415,0.258,0.407,0.263,0.417,0.523,0.421,0.613,0.413,0.633,0.4,0.642,0.389,0.63,0.353,0.193
+        loitering_time: 0
+        inertia: 3
+  PTZ-Black: # <------ Name the camera
+    enabled: true
+    detect:
+      fps: 5
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      inputs:
+        - path: rtsp://admin1:12345678@10.0.0.21:554/stream2 # <----- The stream you want to use f>
+          roles:
+            - record
+        - path: rtsp://admin1:12345678@10.0.0.21:554/stream1 # <----- The stream you want to use f>
+          roles:
+            - detect
+            - audio
+    zones:
+      living_room:
+        coordinates: 0.4,0,0.773,0.075,1,0.259,1,1,0.361,1
+        loitering_time: 5
+        inertia: 3
+      Study:
+        coordinates: 0.4,0,0.368,1,0,1,0,0,0.297,0
+        inertia: 3
+        loitering_time: 2
+      FrontDoor:
+        coordinates: 0.634,0.064,0.74,0.13,0.655,0.604,0.555,0.573
+        loitering_time: 0
+    motion:
+      mask: 0.687,0.021,0.703,0.162,0.995,0.309,0.999,0.006
+  PTZ-Whte: # <------ Name the camera
+    enabled: true
+    detect:
+      fps: 5
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      inputs:
+        - path: rtsp://admin1:12345678@10.0.0.22:554/stream2 # <----- The stream you want to use f>
+          roles:
+            - record
+        - path: rtsp://admin1:12345678@10.0.0.22:554/stream1 # <----- The stream you want to use f>
+          roles:
+            - detect
+            - audio
+    zones:
+      living_room:
+        coordinates: 0.4,0,0.773,0.075,1,0.259,1,1,0.361,1
+        loitering_time: 5
+        inertia: 3
+      Study:
+        coordinates: 0.4,0,0.368,1,0,1,0,0,0.297,0
+        inertia: 3
+        loitering_time: 2
+      FrontDoor:
+        coordinates: 0.634,0.064,0.74,0.13,0.655,0.604,0.555,0.573
+        loitering_time: 0
+    motion:
+      mask: 0.687,0.021,0.703,0.162,0.995,0.309,0.999,0.006
+
+detect:
+  enabled: true
+genai:
+  enabled: true
+  provider: ollama
+  base_url: http://100.90.137.60:11434
+  model: llava
+  prompt: Analyze the {label} in these images from the {camera} security camera.
+    Focus on the actions, behavior, and potential intent of the {label}, rather 
+    than just describing its appearance.
+  object_prompts:
+    person: Examine the main person in these images. What are they doing and 
+      what might their actions suggest about their intent (e.g., approaching a 
+      door, leaving an area, standing still)? Do not describe the surroundings 
+      or static details.
+    car: Observe the primary vehicle in these images. Focus on its movement, 
+      direction, or purpose (e.g., parking, approaching, circling). If it's a 
+      delivery vehicle, mention the company.
+birdseye:
+  enabled: true
+  restream: true
+  quality: 15
+  mode: motion
+
+semantic_search:
+  enabled: true
+  model_size: small
+
+face_recognition:
+  enabled: true
+  model_size: small
+
+lpr:
+  enabled: true
+  device: GPU
+  model_size: small
+  detection_threshold: 0.7
+  min_area: 1000
+  recognition_threshold: 0.9
+  min_plate_length: 4
+  format: None
+  match_distance: 1
+  known_plates:
+    KIA:
+      - 9DXE695
+  enhancement: 0
+  # Optional: Save plate images to /media/frigate/clips/lpr for debugging purposes (default: shown below)
+  debug_save_plates: true
+
+telemetry:
+  network_interfaces:
+    - eth
+    - enp
+    - eno
+    - ens
+    - wl
+    - lo
+  stats:
+    # Optional: Enable Intel GPU stats (default: shown below)
+    intel_gpu_stats: true
+    network_bandwidth: true
+  version_check: true
+
+classification:
+  bird:
+    enabled: false
+version: 0.16-0
