@@ -52,7 +52,7 @@ record:
 
 snapshots:
   enabled: true
-  clean_copy: true
+  clean_copy: false
   timestamp: true
   bounding_box: true
   crop: false
@@ -76,8 +76,6 @@ objects:
   track:
     - person
     - dog
-    - cat
-    - motorcycle
     - car
 
   filters:
@@ -96,22 +94,25 @@ cameras:
       fps: 5
     ffmpeg:
       inputs:
-        - path: rtsp://100.76.15.107:8554/linux_usbcam?mp4 # <----- The stream you want to use f>
+        - path: rtsp://10.0.0.150:8554/linux_usbcam?mp4 # <----- The stream you want to use f>
           roles:
             - detect
             - record
             - audio
+
   F-Parkinglot: # <------ Name the camera
     enabled: true
     detect:
       fps: 5
     ffmpeg:
       inputs:
-        - path: rtsp://100.76.15.107:8554/ring?mp4 # <----- The stream you want to use f>
+        - path: rtsp://10.0.0.150:8554/ring?mp4 # <----- The stream you want to use f>
           roles:
             - detect
             - record
             - audio
+
+
   F-Bedroom: # <------ Name the camera
     enabled: true
     detect:
@@ -136,7 +137,9 @@ cameras:
           0.417,0.18,0.415,0.258,0.407,0.263,0.417,0.523,0.421,0.613,0.413,0.633,0.4,0.642,0.389,0.63,0.353,0.193
         loitering_time: 0
         inertia: 3
-  PTZ-Black: # <------ Name the camera
+
+
+  PTZ-livingroom: # <------ Name the camera
     enabled: true
     detect:
       fps: 5
@@ -150,6 +153,15 @@ cameras:
           roles:
             - detect
             - audio
+
+              
+    onvif:
+      host: 10.0.0.21
+      port: 2020
+      user: admin1
+      password: 12345678
+
+
     zones:
       living_room:
         coordinates: 0.4,0,0.773,0.075,1,0.259,1,1,0.361,1
@@ -164,7 +176,7 @@ cameras:
         loitering_time: 0
     motion:
       mask: 0.687,0.021,0.703,0.162,0.995,0.309,0.999,0.006
-  PTZ-Whte: # <------ Name the camera
+    PTZ-Study: # <------ Name the camera
     enabled: true
     detect:
       fps: 5
@@ -178,6 +190,53 @@ cameras:
           roles:
             - detect
             - audio
+
+              
+    onvif:
+      host: 10.0.0.22
+      port: 2020
+      user: admin1
+      password: 12345678
+
+
+    zones:
+      living_room:
+        coordinates: 0.4,0,0.773,0.075,1,0.259,1,1,0.361,1
+        loitering_time: 5
+        inertia: 3
+      Study:
+        coordinates: 0.4,0,0.368,1,0,1,0,0,0.297,0
+        inertia: 3
+        loitering_time: 2
+      FrontDoor:
+        coordinates: 0.634,0.064,0.74,0.13,0.655,0.604,0.555,0.573
+        loitering_time: 0
+    motion:
+      mask: 0.687,0.021,0.703,0.162,0.995,0.309,0.999,0.006
+
+
+  USB-DESK: # <------ Name the camera
+    enabled: true
+    detect:
+      fps: 5
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      inputs:
+        - path: rtsp://admin1:12345678@10.0.0.22:554/stream2 # <----- The stream you want to use f>
+          roles:
+            - record
+        - path: rtsp://admin1:12345678@10.0.0.22:554/stream1 # <----- The stream you want to use f>
+          roles:
+            - detect
+            - audio
+        
+    onvif:
+      host: 10.0.0.23
+      port: 2020
+      user: admin1
+      password: 12345678
+
+
     zones:
       living_room:
         coordinates: 0.4,0,0.773,0.075,1,0.259,1,1,0.361,1
