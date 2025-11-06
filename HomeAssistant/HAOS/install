@@ -1,0 +1,6 @@
+mmcblk0p1
+
+
+
+sudo efibootmgr --create --disk /dev/mmcblk0 --part 1 --label 
+"HAOS" \ --loader '\EFI\BOOT\bootx64.efi'
