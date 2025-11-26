@@ -1,0 +1,90 @@
+
+mqtt:
+  enabled: false
+go2rtc:
+  streams:
+    c100:
+      - ffmpeg:rtsp://admin1:12345678@10.0.0.20:554/stream1
+      - ffmpeg:c100#audio=aac
+      - tapo://admin:001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5@10.0.0.20
+    c200:
+      - ffmpeg:rtsp://admin1:12345678@10.0.0.21:554/stream1
+      - ffmpeg:c200#audio=aac
+      - tapo://admin:001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5@10.0.0.21
+    c210:
+      - ffmpeg:rtsp://admin1:12345678@10.0.0.22:554/stream1
+      - ffmpeg:c210#audio=aac
+      - tapo://admin:001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5@10.0.0.20
+    c220:
+      - ffmpeg:rtsp://admin1:12345678@10.0.0.23:554/stream1
+      - ffmpeg:c220#audio=aac
+      - tapo://admin:001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5@10.0.0.21
+cameras:
+  c100:
+    ffmpeg:
+      output_args:
+        record: preset-record-generic-audio-copy
+      inputs:
+        - path: rtsp://127.0.0.1:8554/c100
+          input_args: preset-rtsp-generic
+          roles:
+            - record
+            - detect
+            - audio
+
+  c200:
+    ffmpeg:
+      output_args:
+        record: preset-record-generic-audio-copy
+      inputs:
+        - path: rtsp://127.0.0.1:8554/c200
+          input_args: preset-rtsp-generic
+          roles:
+            - record
+            - detect
+            - audio
+    onvif:
+      host: 10.0.0.21
+      port: 2020
+      user: admin1
+      password: 001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5
+
+
+  c210:
+    ffmpeg:
+      output_args:
+        record: preset-record-generic-audio-copy
+      inputs:
+        - path: rtsp://127.0.0.1:8554/c210
+          input_args: preset-rtsp-generic
+          roles:
+            - record
+            - detect
+            - audio
+    onvif:
+      host: 10.0.0.22
+      port: 2020
+      user: admin1
+      password: 001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5
+
+  c220:
+    ffmpeg:
+      output_args:
+        record: preset-record-generic-audio-copy
+      inputs:
+        - path: rtsp://127.0.0.1:8554/c220
+          input_args: preset-rtsp-generic
+          roles:
+            - record
+            - detect
+            - audio
+    onvif:
+      host: 10.0.0.23
+      port: 2020
+      user: admin1
+      password: 001B2D80CA641270D25E7F7A1436F6FC6ACB4284B20C9B6289792060C86BB5E5
+
+
+detect:
+  enabled: true
+version: 0.16-0

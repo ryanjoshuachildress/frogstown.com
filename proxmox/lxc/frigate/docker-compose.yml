@@ -4,14 +4,15 @@ services:
       - CAP_PERFMON
     container_name: frigate
     restart: unless-stopped
-    image: ghcr.io/blakeblackshear/frigate:stable
+    image: ghcr.io/blakeblackshear/frigate:stable-rocm
     privileged: true
     shm_size: "512mb" # update for your cameras based on calculation above
     devices:
-      - /dev/dri/renderD128:/dev/dri/renderD128 # For intel hwaccel, needs to be updat>
+      - /dev/dri
+      - /dev/kfd   
     volumes:
-      - /shared/config:/config
-      - /shared/storage:/media/frigate
+      - /shared/share/frigate/config:/config
+      - /shared/share/frigate/storage:/media/frigate
       - type: tmpfs
         target: /tmp/cache
         tmpfs:
