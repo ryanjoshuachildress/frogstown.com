@@ -1,3 +1,6 @@
 wget https://us.download.nvidia.com/XFree86/Linux-x86_64/580.82.07/NVIDIA-Linux-x86_64-580.82.07.run
-chmod +x ./NVIDIA-Linux-x86_64-580.82.07.run
-./NVIDIA-Linux-x86_64-580.82.07.run
+sudo chmod +x ./NVIDIA-Linux-x86_64-580.82.07.run
+sudo ./NVIDIA-Linux-x86_64-580.82.07.run
+curl -fsSL https://get.docker.com -o install-docker.sh
+sudo sh install-docker.sh --dry-run
+sudo sh install-docker.sh
