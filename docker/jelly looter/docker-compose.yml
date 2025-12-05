@@ -1,0 +1,12 @@
+
+services:
+  jellylooter:
+    container_name: jellylooter
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    volumes:
+      - ./config:/config
+      - /shared/media:/storage
+    environment:
+      - TZ=America/Los_Angeles
