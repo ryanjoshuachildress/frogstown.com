@@ -10,3 +10,7 @@ services:
       - /shared/media:/storage
     environment:
       - TZ=America/Los_Angeles
+
+
+
+      sudo rsync -rvP --ignore-existing /mnt/river/media/shows/ /mnt/tank/media/shows
