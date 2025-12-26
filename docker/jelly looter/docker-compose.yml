@@ -13,4 +13,4 @@ services:
 
 
 
-      sudo rsync -rvP --ignore-existing /mnt/river/media/shows/ /mnt/tank/media/shows
+      sudo rsync -rvP --ignore-existing /mnt/river/media/shows/ /mnt/tank/media/shows8

@@ -1,0 +1,4 @@
+mount nfs
+
+sudo apt install nfs-common
+sudo mkdir -p /mnt/nassarr/backup

@@ -1,0 +1,34 @@
+d82ca17f-1d3b-4cc1-9887-419bbd9482af
+
+export PBS_REPOSITORY=tnpbsbackup@pbs@10.0.0.209:tnpbs
+export PBS_PASSWORD=D@D@love1234
+proxmox-backup-client backup share.pxar:/mnt/tank/share
+
+
+#Authentication and host information for PBS server
+export PBS_REPOSITORY=tnpbsbackup@pbs!apibackup:tnpbs
+export PBS_PASSWORD=d82ca17f-1d3b-4cc1-9887-419bbd9482af
+proxmox-backup-client backup sharebu.pxar:/mnt/tank/share --all-file-systems true
+
+# Backup Specifications
+SPEC=""
+
+#Backup dataset media on pool tank
+SPEC="$SPEC tank.pxar:/mnt/tank/media"
+
+#Backup dataset backup on pool tank
+SPEC="$SPEC backup.pxar:/mnt/tank/backup"
+
+#Backup a zvol
+#I don't use this personally, so I can't test it, but this is the syntax for the backup client
+#Don't try to back up a zvol while it is mounted / in use
+SPEC="$SPEC zvol.img:/dev/zvol/tank/volume"
+
+#Perform backup
+#You may add your own client-side encryption if you wish
+#By default, the client hostname is used as the backup id in PBS
+#You can optionally specify your own using --backup-id <name>
+#If you want each pool to have a unique backup ID, you'll need to call the client
+#one time for each backup ID, each with a different spec.
+echo SPEC is $SPEC
+proxmox-backup-client backup $SPEC --all-file-systems true
