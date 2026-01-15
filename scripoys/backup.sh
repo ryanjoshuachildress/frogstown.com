@@ -10,7 +10,7 @@ mount -t cifs //10.0.0.100/share /shared/share -o username=ryan
 mount -t cifs //10.0.0.100/immich /shared/immich -o username=ryan
 mount -t cifs //10.0.0.100/memos /shared/memos -o username=ryan
 
-#respository
+#respositoryexportexport PBS_REPOSITORY= PBS_REPOSITORY=
 export PBS_PASSWORD=D@D@love
 
 export PBS_REPOSITORY=truenas@pbs@10.0.0.98:exthd
@@ -29,7 +29,7 @@ SPEC="$SPEC movies.pxar:/shared/media/movies"
 SPEC="$SPEC shows.pxar:/shared/media/shows"
 
 
-export PBS_REPOSITORY=root@pam@10.0.0.98:exthd
+export PBS_REPOSITORY=root@pam@10.0.0.221:tnpbs
 export PBS_PASSWORD=D@D@love1234
 
 
@@ -64,9 +64,7 @@ export PBS_PASSWORD=D@D@love
 export PBS_REPOSITORY=pbsproxmox@10.0.0.98:exthd
 # Backup Specifications
 SPEC=""
-SPEC="$SPEC music.pxar:/shared/media/music"
-SPEC="$SPEC podcast.pxar:/shared/media/podcast"
-SPEC="$SPEC audiobooks.pxar:/shared/media/audiobooks"
+SPEC="$SPEC music.pxar:/media/music"
 echo SPEC is $SPEC
 proxmox-backup-client backup $SPEC --all-file-systems true
 
@@ -95,7 +93,7 @@ export PBS_PASSWORD=D@D@love
 
 export PBS_REPOSITORY=truenas@pbs@10.0.0.98:exthd
 # Backup Specifications
-SPEC=""
+
 SPEC="$SPEC immich.pxar:/shared/immich"
 SPEC="$SPEC immichold.pxar:/shared/share/immich(old)"
 SPEC="$SPEC documents.pxar:/shared/share/documents"
@@ -105,3 +103,21 @@ proxmox-backup-client backup $SPEC --all-file-systems true
 
 
 mkdir -p /shared/emgmedia
+
+export PBS_REPOSITORY=root@pam@10.0.0.221:backupdata
+export PBS_PASSWORD=D@D@love1234
+
+SPEC=""
+SPEC="$SPEC ourmemos.pxar:/mnt/tank/media/ourmemos"
+echo SPEC is $SPEC
+proxmox-backup-client backup $SPEC --all-file-systems true
+
+
+
+export PBS_REPOSITORY=tnpbsbackup@pbs@10.0.0.221:tnpbs
+export PBS_PASSWORD=D@D@love
+
+SPEC=""
+SPEC="$SPEC ourmemos.pxar:/mnt/tank/media/ourmemos"
+echo SPEC is $SPEC
+proxmox-backup-client backup $SPEC --all-file-systems true
