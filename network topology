@@ -1,0 +1,54 @@
+cablemode
+    coax input - cox install line
+    lan1 - rounter internet
+    lan2
+    dc power in - networking1
+
+router
+    internet - cable modem lan1
+    ethernet - poeswitch uplink9
+    dc power in - networkig1
+satalight1
+    dc power in - misc bedroom
+    ethernet = 
+satalight2
+    dc power in - misc blivingroom
+    ethernet = 
+poeswitch 
+    port1 - miniatxnas nic1 (00045FB59F04)
+    port2
+    port3 - dellaio ethernet im ()
+    port4
+    port5
+    port6
+    port7
+    port8
+    uplink9 - router ethernet
+    uplink10 - managedswitch 1
+    ac power in - networkig1
+
+miniatxnas 
+    nic0 (00045FB59F04)
+    nic1 (00045FB59F05)
+    usbhd1
+        sn - WX82D55M9CE8    
+        mn - WD60NDZW-11C8XS0   
+        6tb
+    usbhd2
+        sn - WX82D555XFKC   
+        mn - WD60NDZW-11C8XS0   
+        6tb 
+    ac power in networking1
+
+networkig1(must reset powerstrip locally after remote shutoff)
+    tp-link
+    3c-a6-d2-41-7e=48
+    router
+    poeswitch
+    cablemodem
+    dellaio
+
+dellaio
+    ethernet in - poeswitch2
+    dc power input - networking1
+    

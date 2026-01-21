@@ -1,0 +1,95 @@
+Data
+    users
+        [user]
+            photos
+            videos
+            files
+            templates
+            downloads
+            appdata
+                [app]
+            backups
+    appdata
+        [app]
+            data
+            config
+            backup
+    media
+        music
+            [artist]
+                [album]
+                    [song]
+        movies
+            [title]
+                [file]
+                [metadata]
+        shows
+            [season]
+                [file]
+                [metadata]
+        podcast
+            [season]
+                [episode]
+        audiobooks
+            [title]
+                [file]
+                [metadata]
+        books
+            [title] 
+                [file]
+                [metadata]
+        youtube
+            [channel/creator]
+                [video]           
+            [playlist]
+                [video]            
+        porn
+            [source]
+                [video]            
+                [metadata]
+            [homemade]
+                [person]
+                    [video]
+                        [bulk storage]
+        dowloads
+            [source]
+                [temp]
+    share
+        documents
+            dokuwiki
+            selfhosted icons
+        installers
+            iso
+            scripts
+            docker-compose
+            [device]
+                drivers
+                    [driver]
+                firmware
+                    [file]
+                manuals
+                    [pdf]
+                    [video]
+            setup files
+                [program]
+                    setup files
+                        [plugins]
+                        [extentione]
+                        [updates]
+                        [information]                        
+        tools
+            [tool]
+            [helper]
+            [calculatior]
+            [template]
+
+backup
+    pbs-local(recreatable/downloads)
+        data
+        application
+        device
+    pbs-external(time intestive to repace but not impossible)
+        data
+        application
+    cloud(vital record and photo)
+        data 
