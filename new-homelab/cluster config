@@ -1,0 +1,23 @@
+cluster name: frogstown
+config version: 5
+nodes: 3
+    intelpve2u
+        link 0: 10.10.0.219
+        link 1: 10.0.0.219
+    intelpve4u
+        link 0: 10.10.0.221
+        link 1: 10.0.0.221
+    rrdellr420pve
+        link 0: 10.10.0.220
+        link 1: 10.0.0.220
+        
+join info:
+    user: root
+    password: D@D@love1234
+    ipaddress: 10.0.0.219
+    fingerprint: 6A:25:B4:15:9A:A5:D4:0A:E5:74:65:A0:1B:4C:89:31:E6:12:D7:C7:87:A4:41:9E:B4:35:09:12:8C:DC:0E:8E:0F
+
+
+    eyJpcEFkZHJlc3MiOiIxMC4wLjAuMjE5IiwiZmluZ2VycHJpbnQiOiI2QToyNTpCNDoxNTo5QTpBNTpENDowQTpFNTo3NDo2NTpBMDoxQjo0Qzo4OTozMTpFNjoxMjpENzpDNzo4QTo0MTo5RTpCNDozNTowOToxMjo4QzpEQzowRTo4RTowRiIsInBlZXJMaW5rcyI6eyIwIjoiMTAuMTAuMC4yMTkiLCIxIjoiMTAuMC4wLjIxOSJ9LCJyaW5nX2FkZHIiOlsiMTAuMC4wLjIxOSIsIjEwLjEwLjAuMjE5Il0sInRvdGVtIjp7InNlY2F1dGgiOiJvbiIsImlwX3ZlcnNpb24iOiJpcHY0LTYiLCJjbHVzdGVyX25hbWUiOiJmcm9nc3Rvd24iLCJ2ZXJzaW9uIjoiMiIsImxpbmtfbW9kZSI6InBhc3NpdmUiLCJpbnRlcmZhY2UiOnsiMCI6eyJsaW5rbnVtYmVyIjoiMCJ9LCIxIjp7ImxpbmtudW1iZXIiOiIxIn19LCJjb25maWdfdmVyc2lvbiI6IjUifX0=
+
+    
