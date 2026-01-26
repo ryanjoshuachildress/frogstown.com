@@ -1,0 +1,12 @@
+create clustor
+    pve-frogstown
+    10.0.0.0/24
+
+nodes
+    dellpvet310
+    10.0.0.200
+
+    dellpver420
+    10.0.0.201
+
+    

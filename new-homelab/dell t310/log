@@ -1,0 +1,17 @@
+configure raid
+raid `1 250gb
+
+install proxmox 9.1
+
+pve post install
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)"
+
+glances monitoring
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/addon/glances.sh)"
+
+10.0.0.200:8006
+10.0.0.200:61208
+dellpvet310
+dns - 1.1.1.1
+email - daddypreys@outlook.com
+
