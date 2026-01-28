@@ -1,0 +1,5 @@
+qm set 117 -virtio0 /dev/disk/by-id/ata-ST1000NM0033-9ZM173_Z1W1KYNJ
+qm set 117 -virtio1 /dev/disk/by-id/ata-ST1000NM0033-9ZM173_Z1W1KZMA
+qm set 117 -virtio2 /dev/disk/by-id/ata-ST1000NM0033-9ZM173_Z1W1KY2D
+qm set 117 -virtio3 /dev/disk/by-id/ata-ST1000NM0033-9ZM173_Z1W1KXYS
+qm set 117 -virtio4 /dev/disk/by-id/ata-ST1000NM0033-9ZM173_Z1W1KX88    

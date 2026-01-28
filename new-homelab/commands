@@ -1,0 +1,6 @@
+# host intital install
+# update upgrade curl wget and glances install
+apt update && apt upgrade -y && apt install curl wget glances -y
+reboot
+# after reboot run the following commands
+
