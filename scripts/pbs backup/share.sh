@@ -6,4 +6,4 @@ SPEC=""
 SPEC="$SPEC share.pxar:/mnt/tank/share"
 echo SPEC is $SPEC
 proxmox-backup-client backup $SPEC --all-file-systems true
-curl -X POST "http://10.0.0.109:8000/message?token=Ag08CMdNwYcF5Aa" -F "title=truenas pbs" -F "message=shared document storage backed up"
+curl -X POST "http://10.0.0.109:8000/message?token=Ag08CMdNwYcF5Aa" -F "title=truenas pbs" -F "message=shared document storage backed up"1111
