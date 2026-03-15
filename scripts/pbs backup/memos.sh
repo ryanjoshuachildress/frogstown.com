@@ -1,10 +1,21 @@
-curl -X POST "http://10.0.0.109:8000/message?token=Ag08CMdNwYcF5Aa" -F "title=data backup started" -F "truenas pbs started memos data backup"
-export PBS_REPOSITORY=root@pam@10.0.0.221:backupdata
-export PBS_PASSWORD=D@D@love1234
-curl -X POST "http://10.0.0.109:8000/message?token=Ag08CMdNwYcF5Aa" -F "title=truenas pbs" -F "message=memos data backed up started"
+export PBS_REPOSITORY=root@pam@10.0.100.150:nfsds
+export PBS_PASSWORD=D@D@love
+export PBS_FINGERPRINT=cd:c6:d1:57:ff:a5:05:19:33:80:eb:c1:93:d1:67:fd:91:99:ee:bc:8a:2a:70:d9:7a:35:09:cc:cc:dc:0f:73
 SPEC=""
-SPEC="$SPEC ourmemos.pxar:/mnt/tank/media/ourmemos"
-SPEC="$SPEC memos.pxar:/mnt/tank/media/memos"
+SPEC="$SPEC configs.pxar:/mnt/tank/configs"
+SPEC="$SPEC media.pxar:/mnt/tank/media"
+SPEC="$SPEC Backup.pxar:/mnt/tank/Backup"
+SPEC="$SPEC apps.pxar:/mnt/tank/apps"
+SPEC="$SPEC share.pxar:/mnt/tank/share"
 echo SPEC is $SPEC
 proxmox-backup-client backup $SPEC --all-file-systems true
-curl -X POST "http://10.0.0.109:8000/message?token=Ag08CMdNwYcF5Aa" -F "title=truenas pbs" -F "message=memos data backed up with truenas pbs"
+
+
+export PBS_REPOSITORY=root@pam@10.0.100.150:nfsds
+export PBS_PASSWORD=D@D@love
+export PBS_FINGERPRINT=cd:c6:d1:57:ff:a5:05:19:33:80:eb:c1:93:d1:67:fd:91:99:ee:bc:8a:2a:70:d9:7a:35:09:cc:cc:dc:0f:73
+SPEC=""
+SPEC="$SPEC configs.pxar:/mnt/tank/configs"
+SPEC="$SPEC media.pxar:/mnt/tank/media"
+echo SPEC is $SPEC
+proxmox-backup-client backup $SPEC --all-file-systems true

@@ -1,0 +1,18 @@
+dev0: /dev/dri/card0,gid=44
+tags: community-script
+timezone: America/Los_Angeles
+lxc.cgroup2.devices.allow: a
+lxc.cap.drop:
+lxc.cgroup2.devices.allow: c 188:* rwm
+lxc.cgroup2.devices.allow: c 189:* rwm
+lxc.mount.entry: /dev/serial/by-id  dev/serial/by-id  none bind,optional,create=dir
+lxc.mount.entry: /dev/ttyUSB0       dev/ttyUSB0       none bind,optional,create=file
+lxc.mount.entry: /dev/ttyUSB1       dev/ttyUSB1       none bind,optional,create=file
+lxc.mount.entry: /dev/ttyACM0       dev/ttyACM0       none bind,optional,create=file
+lxc.mount.entry: /dev/ttyACM1       dev/ttyACM1       none bind,optional,create=file
+
+
+
+
+
+bash <(curl -fsSL https://raw.githubusercontent.com/Danilop95/Proxmox-Enhanced-Configuration-Utility/main/scripts/pecu_release_selector.sh)

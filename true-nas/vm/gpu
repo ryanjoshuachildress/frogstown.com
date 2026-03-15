@@ -2,11 +2,19 @@ sudo apt update
 sudo apt upgrade -y 
 sudo apt install gcc -y
 sudo apt install make -y
-wget https://us.download.nvidia.com/XFree86/Linux-x86_64/580.82.07/NVIDIA-Linux-x86_64-580.82.07.run
-sudo chmod +x ./NVIDIA-Linux-x86_64-580.82.07.run
-sudo ./NVIDIA-Linux-x86_64-580.82.07.run --tmpdir=/mnt/tank/media/downloads/temp
+wget https://us.download.nvidia.com/XFree86/Linux-x86_64/580.82.07/NVIDIA-Linux-x86_64-580.126.18.run
+sudo chmod +x ./NVIDIA-Linux-x86_64-580.126.18.run
+sudo ./NVIDIA-Linux-x86_64-580.126.18run --tmpdir=/mnt/tank/media/downloads/temp
 curl -fsSL https://get.docker.com -o install-docker.sh
 sudo sh install-docker.sh
 
 
 sudo mount -o hard,intr,tcp,noatime 10.0.0.2:/mnt/tank/media /nfs/media
+
+arm
+
+sudo apt install wget lsscsi
+lsscsi -g
+wget https://raw.githubusercontent.com/automatic-ripping-machine/automatic-ripping-machine/main/scripts/installers/docker-setup.sh
+sudo chmod +x docker-setup.sh
+sudo ./docker-setup.sh

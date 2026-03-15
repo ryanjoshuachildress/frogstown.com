@@ -33,8 +33,7 @@ export PBS_REPOSITORY=root@pam@10.0.0.221:tnpbs
 export PBS_PASSWORD=D@D@love1234
 
 
-proxmox-backup-client backup immich.pxar:/shared/immich --all-file-systems true --ns immich
-
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 proxmox-backup-client backup podcast.pxar:/shared/media/podcast --all-file-systems true --ns podcast
 
 proxmox-backup-client backup memos.pxar:/shared/memos --all-file-systems true --ns memos
