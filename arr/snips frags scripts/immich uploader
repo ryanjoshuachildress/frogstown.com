@@ -1,0 +1,14 @@
+apt install python3 -y
+apt install python3-pip -y
+apt install git -y
+git clone https://github.com/carforge/iommich_bulk_uploader.git
+cd immich_bulk_uploader
+
+pip install 
+
+
+
+#! /bin/sh
+/usr/bin/ipmitool -I lanplus -H 169.254.0.1 -U root -P D@D@ raw 0x30 0x30 0x02 0xff 0x30
+/usr/bin/ipmitool -I lanplus -H 169.254.0.1 -U root -P D@D@  raw 0x30 0x30 0x02 0xff 0x20
+

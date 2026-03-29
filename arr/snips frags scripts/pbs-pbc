@@ -1,0 +1,21 @@
+###### adds no-sub repostitory and downloads and install GPG key
+
+echo "deb http://download.proxmox.com/debian/pbs trixie pbs-no-subscription" | sudo tee -a /etc/apt/sources.list
+sudo apt install wget -y
+wget https://enterprise.proxmox.com/debian/proxmox-release-trixie.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-trixie.gpg
+sudo apt update && apt upgrade -y
+
+
+###### installs prereqs and proxmox backup client
+
+sudo apt install -y whiptail apt-utils coreutils bash proxmox-widget-toolkit nano nfs-common cron
+sudo apt update && apt install proxmox-backup-client -y
+
+
+###### installs prereqs and proxmox backup server
+##### resets root password which is alkso pbs login
+
+sudo apt install -y whiptail apt-utils coreutils bash proxmox-widget-toolkit nano nfs-common cron
+sudo apt update && apt install proxmox-backup-server -y
+echo "https://$(ip -4 addr show $(ip route | grep default | awk '{print $5}') | grep inet | awk '{print $2}' | cut -d/ -f1):8007"
+passwd root

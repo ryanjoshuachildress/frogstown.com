@@ -1,0 +1,16 @@
+stash
+http://10.0.135.108:9999
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6IkFQSUtleSIsImlhdCI6MTc3NDc3MjYzNH0.OLqsYk93TVTMUYTdhxY7EaAGOSYF9DllhZDqNtcU69s
+
+radarr
+
+sonarr
+
+
+jellyfin
+
+immich
+http://10.0.100.160:2283/
+ryan-full-api
+
+alyssa-full-api
