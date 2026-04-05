@@ -1,0 +1,205 @@
+
+
+mqtt:
+  enabled: true
+  host: 10.0.100.235
+  port: 1883
+  topic_prefix: frigate
+  client_id: frigate
+  user: frigate
+  password: frigate
+cameras:     # No cameras defined, UI wizard should be used
+  cKitchen:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://watchlive:watchlive@10.0.220.154:554/stream8
+          roles:
+            - audio
+        - path: rtsp://watchlive:watchlive@10.0.220.154:554/stream2
+          roles:
+            - record
+            - detect
+  cBedroom:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://watchlive:watchlive@10.0.220.219:554/stream2
+          roles:
+            - audio
+            - record
+            - detect
+  cEllieBed:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://watchlive:watchlive@10.0.220.124:554/stream2
+          roles:
+            - audio
+            - record
+            - detect
+  cLivingroom:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://watchlive:watchlive@10.0.220.248:554/stream2
+          roles:
+            - audio
+            - record
+            - detect
+  cGarage:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://watchlive:watchlive@10.0.220.240:554/stream2
+          roles:
+            - audio
+            - record
+            - detect
+
+record:
+  enabled: true
+  motion:
+    days: 7
+  alerts:
+    retain:
+      days: 7
+  detections:
+    retain:
+      days: 7
+
+snapshots:
+  enabled: true
+  retain:
+    default: 30
+
+tls:
+  enabled: false
+
+audio:
+  enabled: true
+  listen:
+    - bark
+    - fire_alarm
+    - scream
+    - yell
+
+detect:
+  enabled: true
+  fps: 1
+
+detectors:
+  ov_A:
+    type: openvino
+    device: AUTO
+  ov_B:
+    type: openvino
+    device: AUTO
+  ov_C:
+    type: openvino
+    device: AUTO
+  ov_D:
+    type: openvino
+    device: AUTO
+  ov_A2:
+    type: openvino
+    device: AUTO
+  ov_B2:
+    type: openvino
+    device: AUTO
+  ov_C2:
+    type: openvino
+    device: AUTO
+  ov_D2:
+    type: openvino
+    device: AUTO
+  ov_A3:
+    type: openvino
+    device: AUTO
+  ov_B3:
+    type: openvino
+    device: AUTO
+  ov_C3:
+    type: openvino
+    device: AUTO
+  ov_D3:
+    type: openvino
+    device: AUTO
+  # 4ov_A4:
+  #     type: openvino
+  #     device: AUTO
+  #   ov_B4:
+  #     type: openvino
+  #     device: AUTO
+  #   ov_C4:
+  #     type: openvino
+  #     device: AUTO
+  #   ov_D4:
+  #     type: openvino
+  #     device: AUTO
+genai:
+  provider: ollama
+  base_url: http://10.0.135.105:11434
+  model: InternVL3_5
+
+review:
+  genai:
+    enabled: true
+    image_source: recordings
+    activity_context_prompt: |
+      ### Normal Activity Indicators (Level 0)
+      - Known/verified people in any zone at any time
+      - People with pets in residential areas
+      - Deliveries or services during daytime/evening (6 AM - 10 PM): carrying packages to doors/porches, placing items, leaving
+      - Services/maintenance workers with visible tools, uniforms, or service vehicles during daytime
+      - Activity confined to public areas only (sidewalks, streets) without entering property at any time
+
+      ### Suspicious Activity Indicators (Level 1)
+      - **Testing or attempting to open doors/windows/handles on vehicles or buildings** — ALWAYS Level 1 regardless of time or duration
+      - **Unidentified person in private areas (driveways, near vehicles/buildings) during late night/early morning (11 PM - 5 AM)** — ALWAYS Level 1 regardless of activity or duration
+      - Taking items that don't belong to them (packages, objects from porches/driveways)
+      - Climbing or jumping fences/barriers to access property
+      - Attempting to conceal actions or items from view
+      - Prolonged loitering: remaining in same area without visible purpose throughout most of the sequence
+
+      ### Critical Threat Indicators (Level 2)
+      - Holding break-in tools (crowbars, pry bars, bolt cutters)
+      - Weapons visible (g/ui/storagemage or theft in progress
+
+      ### Assessment Guidance
+      Evaluate in this order:
+
+      1. **If person is verified/known** → Level 0 regardless of time or activity
+      2. **If person is unidentified:**
+        - Check time: If late night/early morning (11 PM - 5 AM) AND in private areas (driveways, near vehicles/buildings) → Level 1
+        - Check actions: If testing doors/handles, taking items, climbing → Level 1
+        - Otherwise, if daytime/evening (6 AM - 10 PM) with clear legitimate purpose (delivery, service worker) → Level 0
+      3. **Escalate to Level 2 if:** Weapons, break-in tools, forced entry in progress, violence, or active property damage visible (escalates from Level 0 or 1)
+
+      The mere presence of an unidentified person in private areas during late night hours is inherently suspicious and warrants human review, regardless of what activity they appear to be doing or how brief the sequence is.
+
+
+model:
+  width: 300
+  height: 300
+  input_tensor: nhwc
+  input_pixel_format: bgr
+  path: /openvino-model/ssdlite_mobilenet_v2.xml
+  labelmap_path: /openvino-model/coco_91cl_bkgr.txt
+
+
+
+
+semantic_search:
+  enabled: false
+  model_size: small
+face_recognition:
+  enabled: true
+  model_size: small
+lpr:
+  enabled: false
+classification:
+  bird:
+    enabled: false
+
+version: 0.17-0

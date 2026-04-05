@@ -1,0 +1,5 @@
+frigate media share
+pct set 119 -mp0 /mnt/pve/nvr,mp=/mnt/tank/nvr
+mp0: /mnt/pve/nvr,mp=/mnt/tank/nvr,replicate=0,backup=0,shared=1
+
+mp0: /mnt/pve/tnn-media,mp=/mnt/shared/tn/media,replicate=0,backup=0,shared=1
