@@ -1,0 +1,15 @@
+https://github.com/MacRimi/ProxMenux
+
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/MacRimi/ProxMenux/main/install_proxmenux.sh)"
+
+menu
+
+# Check service status
+systemctl status proxmenux-monitor
+
+# View logs
+journalctl -u proxmenux-monitor -n 50
+
+# Restart the service
+systemctl restart proxmenux-monitor
+
