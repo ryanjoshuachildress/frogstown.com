@@ -1,12 +1,34 @@
-property fanatic muskiness epic tactile swagger lumping outlook
+pry remold implicate duty crimp civil creme agonize
 
 
-nextcloud.frogstown.com
 
 
-https://10.0.135.199:8080/
+Backup and restore
+Backup information
+This is your encryption password for backups: bcd61f276632c09c9ca9a632e2d6134e4b179d3aee2c7d67
 
-https://nextcloud.frogstown.com
+Please save this password in a safe place. You won't be able to restore from backup if you lose this password!
+
+All important data from your Nextcloud AIO instance such as the database, your files and the mastercontainer's configuration files, will be backed up.
+
+The backup uses a tool called BorgBackup, a well-known server backup tool that efficiently backs up your files and encrypts them on the fly.
+
+By using this tool, backups are incremental, differential, compressed and encrypted – so only the first backup will take a while. Further backups should be fast as only changes are taken into account.
+
+Backups will be created in the following directory on the host: /mnt/pve/share/backups/nextcloud/borg
+
+Be aware that this solution does not backup files and folders that are mounted into Nextcloud using the external storage app, but you can add further Docker volumes and host paths that you want to back up after the initial backup is done.
+
+For information about backup retention, see this.
 
 
-5511c5ce5b3c17b9dd9cae2000e7cd4f1e87e240f0aa63f1
+
+
+ Local AI (Stopped) (docs)
+Show password for Local AI
+1fbe7923b2d26d50493f3322919aefd9f958a95d8de39358
+
+
+ Vaultwarden (Stopped) (docs)
+Show password for Vaultwarden
+2bbb7df1b13229845b415fde7fd3ec1a1dbeabb1e584c267
