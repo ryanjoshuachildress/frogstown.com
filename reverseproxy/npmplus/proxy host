@@ -1,0 +1,4 @@
+https://gotify.frogstown.com
+    - http
+    -ip - 10.0.100.10
+    -port - 80

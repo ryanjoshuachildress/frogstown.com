@@ -1,1 +1,37 @@
-PBS - InitiatorName=iqn.1993-08.org.debian:01:33f1edc83a60
+PBS Barracuda iSCSI configuration
+
+
+Initiators-
+    - pbs-barracuda - iqn.1993-08.org.debian:01:66da42ff9987
+
+Targets-
+    - pbs-barracuda-target - iqn.1993-08.org.debian:01:66da42ff9987
+
+LUNs-
+    - pbs-barracuda-lun - /dev/sdb
+
+
+
+COMMANDS
+# Install the iSCSI initiator
+apt -y install open-iscsi
+# Change or note the initiator name
+nano /etc/iscsi/initiatorname.iscsi
+# Restart the iSCSI initiator service
+systemctl restart iscsid open-iscsi
+#discover the iSCSI target
+iscsiadm -m discovery -t sendtargets -p 10.0.0.210 
+#check the discovered target
+iscsiadm -m node -o show 
+#login to the target
+iscsiadm -m node --login -p 10.0.0.210
+#check the logged in target
+iscsiadm -m session -o show
+#set the target to automatically login at boot
+iscsiadm -m node -p 10.0.0.210 -o update -n node.startup -v automatic
+#check the iSCSI disk
+lsblk
+
+
+
+
