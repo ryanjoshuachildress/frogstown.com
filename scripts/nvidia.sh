@@ -1,7 +1,7 @@
-apt update && apt upgrade -y && apt install git wget curl nfs-common -y
-apt update && apt install -y --no-install-recommends ca-certificates curl gnupg2
+sudo apt update && sudo apt upgrade -y && sudo apt install git wget curl nfs-common -y
+sudo apt update && sudo apt install -y --no-install-recommends ca-certificates curl gnupg2
 wget https://us.download.nvidia.com/XFree86/Linux-x86_64/580.126.18/NVIDIA-Linux-x86_64-580.126.18.run
-chmod +x ./NVIDIA-Linux-x86_64-580.126.18.run
+sudo chmod +x ./NVIDIA-Linux-x86_64-580.126.18.run
 sh ./NVIDIA-Linux-x86_64-580.126.18.run
 nvidia-smi
 
