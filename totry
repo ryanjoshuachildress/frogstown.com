@@ -1,0 +1,21 @@
+services:
+  trailarr:
+    image: nandyalu/trailarr:latest
+    container_name: trailarr
+    environment:
+      - TZ=America/Los_Angeles # Change to your timezone
+      # Add any other environment variables as needed.
+    volumes:
+      - ./config:/config # For Trailarr's database and logs
+      # Map your Radarr media folder(s)
+      - /mnt/pve/tnn-media/movies:/media/movies # Example: if Radarr uses /media/movies internally
+      # Map your Sonarr media folder(s)
+      - /mnt/pve/tnn-media/shows:/media/tv # Example: if Sonarr uses /media/tv internally
+      # Add more volume mappings if you have multiple Radarr/Sonarr instances
+      # or if your media is split across different locations.
+      # The path on the right (e.g., /media/movies, /media/tv) is how Trailarr will see these folders.
+      # The path on the left is the actual path on your Docker host system.
+    ports:
+      - "7889:7889" # Or choose a different host port if 7889 is taken, leave the right side as is
+    restart: unless-stopped
+    # Optional: Add labels, network, and other configuration as needed
